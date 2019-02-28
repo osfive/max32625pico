@@ -25,11 +25,9 @@ CFLAGS =	-mthumb -mcpu=cortex-m4		\
 		-nostdlib -fno-builtin-printf	\
 		-g -Wall -Werror
 
-all:	compile link binary
+all:	__compile __link __binary
+
+clean:	__clean
 
 .include "osfive/lib/libc/Makefile.inc"
-.include "osfive/mk/bsd.user.mk"
-.include "osfive/mk/bsd.compile.mk"
-.include "osfive/mk/bsd.link.mk"
-.include "osfive/mk/bsd.binutils.mk"
-.include "osfive/mk/bsd.clean.mk"
+.include "osfive/mk/bsd.mk"
